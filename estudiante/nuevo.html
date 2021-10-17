@@ -12,6 +12,8 @@
 
     <script src="https://kit.fontawesome.com/4b4084f640.js" crossorigin="anonymous"></script>
     <script src="/js/js.js"></script>
+    <script src="/js/newEstudiante.js"></script>
+
 
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/estudiante.css">
@@ -50,7 +52,7 @@
                 <center>
                     <div class="col-md-6">
                         <div class="well well-sm">
-                            <form class="form-horizontal" method="post">
+                            <form class="form-horizontal">
                                 <fieldset>
                                     <legend class="text-center header">Nuevo Estudiante</legend>
                                     <div class="form-group form-floating mb-3">
@@ -58,7 +60,7 @@
                                         <label for="floatingInput">Nombre</label>
                                     </div>
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" class="form-control" id="Lastname" placeholder="Apellido">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Apellido">
                                         <label for="floatingInput">Apellido</label>
                                     </div>
                                     <div class="form-group form-floating mb-3">
@@ -76,7 +78,7 @@
             
                                     <div class="form-group">
                                         <div class="col-md-12 text-center">
-                                            <button type="submit" class="btn btn-success btn-lg mt-3">Crear</button>
+                                            <button type="button" id="buttonSubmit" class="btn btn-success btn-lg mt-3">Crear</button>
                                         </div>
                                     </div>
                                 </fieldset>
