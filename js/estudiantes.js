@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
                   <div class="abmEstudient">
                       <span class="pull-right">
                           <i class="far fa-eye mt-4"></i>
-                          <a class="btn-delete"  id="${estudiante.nroEstudiante}" type="button"><i class="fas fa-trash-alt color-danger ms-3"></i></a>
+                          <a class="btn-delete-student" id="${estudiante.nroEstudiante}" type="button"><i class="fas fa-trash-alt color-danger ms-3"></i></a>
                           <i class="fas fa-envelope-square ms-3"></i>
                       </span>
                   </div>
@@ -31,31 +31,28 @@ document.addEventListener("DOMContentLoaded", function(){
                 </li>`;
                 });
                 document.querySelector(".ctn-estudiantes").innerHTML = string;
-                const btn = document.querySelectorAll(".btn-delete");
+                const btn = document.querySelectorAll(".btn-delete-student");
                 for (let i = 0; i < btn.length; i++) {
                     btn[i].addEventListener("click", function() {
                         deleteEstudiante(btn[i].id)
-                    });
+                });
                 }
             })
             .catch(error => console.error(error));
     }
     function deleteEstudiante(idEstudiante){
         let myHeaders = new Headers();
-        myHeaders.append("Content-Type", 'application/json');
-        myHeaders.append("Access-Control-Allow-Origin", "*");
         let requestOptions = {
             method: 'DELETE',
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/estudiantes/"+ id, requestOptions)
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/estudiantes/"+ idEstudiante, requestOptions)
           .then(res => {
             console.log(res);
             getEstudiantes();
           })
           .catch((error) => console.log(error))
-      
     }
     getEstudiantes();
 });
