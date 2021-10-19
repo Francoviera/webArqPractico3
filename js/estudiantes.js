@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     let estudiantes = [];
-    function getEstudiantes(){
-        let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes" + "/estudiantes", requestOptions)
+    function getEstudiantes() {
+        let myHeaders = new Headers();
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
+
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes" + "/estudiantes", requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = ""
@@ -35,24 +36,25 @@ document.addEventListener("DOMContentLoaded", function(){
                 for (let i = 0; i < btn.length; i++) {
                     btn[i].addEventListener("click", function() {
                         deleteEstudiante(btn[i].id)
-                });
+                    });
                 }
             })
             .catch(error => console.error(error));
     }
-    function deleteEstudiante(idEstudiante){
+
+    function deleteEstudiante(idEstudiante) {
         let myHeaders = new Headers();
         let requestOptions = {
             method: 'DELETE',
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/estudiantes/"+ idEstudiante, requestOptions)
-          .then(res => {
-            console.log(res);
-            getEstudiantes();
-          })
-          .catch((error) => console.log(error))
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/estudiantes/" + idEstudiante, requestOptions)
+            .then(res => {
+                console.log(res);
+                getEstudiantes();
+            })
+            .catch((error) => console.log(error))
     }
     getEstudiantes();
 });
