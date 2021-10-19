@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
             };
 
             //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/reporte" , requestOptions)
+            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/reporte/" , requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = ""
@@ -43,6 +43,6 @@ document.addEventListener("DOMContentLoaded", function(){
             })
             .catch(error => console.error(error));
     }
-
+   
     getReportesCarrera();
 });

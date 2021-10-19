@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function(){
             };
 
             //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes" + "/carreras", requestOptions)
+            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras", requestOptions)
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 let string = ""
                 data.forEach(carrera => {
                     string += `<li href="#" class="list-group-item text-left">
@@ -41,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function(){
      
     function deleteCarrera(id) {
         let myHeaders = new Headers();
-        myHeaders.append("Content-Type", 'application/json');
-        myHeaders.append("Access-Control-Allow-Origin", "*");
         let requestOptions = {
             method: 'DELETE',
             headers: myHeaders,
@@ -54,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function(){
             getCarreras();
           })
           .catch((error) => console.log(error))
-      }
+    }
+    
     getCarreras();
     
     
