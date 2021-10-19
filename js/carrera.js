@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     let carreras = [];
-    function getCarreras(){
-        let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras", requestOptions)
+    function getCarreras() {
+        let myHeaders = new Headers();
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
+
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras", requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -33,13 +34,13 @@ document.addEventListener("DOMContentLoaded", function(){
                 const btn = document.querySelectorAll(".btn-delete");
                 for (let i = 0; i < btn.length; i++) {
                     btn[i].addEventListener("click", function() {
-                    deleteCarrera(btn[i].id)
-                });
+                        deleteCarrera(btn[i].id)
+                    });
                 }
             })
             .catch(error => console.error(error));
     }
-     
+
     function deleteCarrera(id) {
         let myHeaders = new Headers();
         let requestOptions = {
@@ -47,15 +48,15 @@ document.addEventListener("DOMContentLoaded", function(){
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/"+ id, requestOptions)
-          .then(res => {
-            console.log(res);
-            getCarreras();
-          })
-          .catch((error) => console.log(error))
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/" + id, requestOptions)
+            .then(res => {
+                console.log(res);
+                getCarreras();
+            })
+            .catch((error) => console.log(error))
     }
-    
+
     getCarreras();
-    
-    
+
+
 });

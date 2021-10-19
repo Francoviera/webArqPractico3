@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", function(){
-    function getFacultades(){
+document.addEventListener("DOMContentLoaded", function() {
+    function getFacultades() {
         let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/facultades" , requestOptions)
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/facultades", requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = ""
@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function(){
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/facultades/"+ id, requestOptions)
-          .then(res => {
-            console.log(res);
-            getFacultades();
-          })
-          .catch((error) => console.log(error))
-      }
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/facultades/" + id, requestOptions)
+            .then(res => {
+                console.log(res);
+                getFacultades();
+            })
+            .catch((error) => console.log(error))
+    }
 
-      getFacultades();
+    getFacultades();
 });

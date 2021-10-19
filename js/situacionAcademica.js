@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     let situacionesAcademicas = [];
-    function getReportesCarrera(){
-        let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/situaciones/" , requestOptions)
+    function getReportesCarrera() {
+        let myHeaders = new Headers();
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
+
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/situaciones/", requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = "";
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function(){
             })
             .catch(error => console.error(error));
     }
+
     function deleteSituacionAcademica(id) {
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", 'application/json');
@@ -61,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function(){
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/situaciones/"+ id, requestOptions)
-          .then(res => {
-            console.log(res);
-            getReportesCarrera();
-          })
-          .catch((error) => console.log(error))
-      }
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/situaciones/" + id, requestOptions)
+            .then(res => {
+                console.log(res);
+                getReportesCarrera();
+            })
+            .catch((error) => console.log(error))
+    }
     getReportesCarrera();
 });

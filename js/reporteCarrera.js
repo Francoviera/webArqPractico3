@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     let reportesCarrera = [];
-    function getReportesCarrera(){
-        let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/reporte/" , requestOptions)
+    function getReportesCarrera() {
+        let myHeaders = new Headers();
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
+
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/carreras/reporte/", requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = ""
@@ -43,6 +44,6 @@ document.addEventListener("DOMContentLoaded", function(){
             })
             .catch(error => console.error(error));
     }
-   
+
     getReportesCarrera();
 });
