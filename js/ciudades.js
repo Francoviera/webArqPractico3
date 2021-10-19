@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", function(){
-    function getCiudades(){
+document.addEventListener("DOMContentLoaded", function() {
+    function getCiudades() {
         let myHeaders = new Headers();
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-            };
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
 
-            //ESTO SE AVANZA EN LA SEGUNDA PARTE 
-            fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/ciudades" , requestOptions)
+        //ESTO SE AVANZA EN LA SEGUNDA PARTE 
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/ciudades", requestOptions)
             .then(response => response.json())
             .then(data => {
                 let string = ""
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         <!-- <div class="break"></div> -->
                     </li>`;
                 });
-                document.querySelector(".ctn-facultades").innerHTML = string;
+                document.querySelector(".ctn-ciudades").innerHTML = string;
                 const btn = document.querySelectorAll(".btn-delete");
                 for (let i = 0; i < btn.length; i++) {
                     btn[i].addEventListener("click", function() {
@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function(){
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/ciudades/"+ id, requestOptions)
-          .then(res => {
-            console.log(res);
-            getCiudades();
-          })
-          .catch((error) => console.log(error))
-      }
+        fetch("http://localhost:8080/EjercicioIntegrador3/registroestudiantes/ciudades/" + id, requestOptions)
+            .then(res => {
+                console.log(res);
+                getCiudades();
+            })
+            .catch((error) => console.log(error))
+    }
 
-      getCiudades();
+    getCiudades();
 });
